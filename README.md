@@ -1,6 +1,9 @@
 # XgDuan.github.io
+Pls visit me at [xgduan.me](xgduan.me)
 
 ### before the main body
+
+
 I will try my best to make this small page looks better. And this file will include some basic information about updates,and maybe more..
 
 ### 2018/9/14
