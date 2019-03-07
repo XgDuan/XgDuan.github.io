@@ -1,5 +1,5 @@
 # XgDuan.github.io
-Pls visit me at [xgduan.me](xgduan.me)
+Pls visit me at [https://xgduan.me](https://xgduan.me)
 
 ### before the main body
 
