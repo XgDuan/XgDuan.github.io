@@ -2,22 +2,45 @@
 <html>
     <head>
         <title>how did our quarrel arise</title>
+        <script type="text/javascript" src="CryptoJS/rollups/aes.js"></script>
+        <script>
+            function a(){
+                key = CryptoJS.enc.Utf8.parse(document.getElementById('password').value);
+                encrypted = "BqZmleKbREoOqNKAgcWTpqNyfgJ/vEluZ3gr6pYYbqwoCLiA693RUiZKa+OX408sGu5biEVhOtEnSdytWMymqSULyFaPEjbKObnMYLVv1vUnqt3WY/Fn0NknrEklTJhlMJGbkNV9g4guzVIb/WWr2FhpgBa2xFnOPZuw+Y+98brAqLzKg4nVK+BQggqOF0uCPtPzNOOrNyYa8n/NF6NQF++hj/It7/481GU2leK4bBS4ZLAj1nVunIg79hfOytfGn281lcguiX47iv1xIIW+cfxGNmYlKAIgofBhPs/J16m8V31xmGtNv9oIW4HJ6ZIKyMSaRMAIFMWzuk4vahPRdcf3BTNZb3pVBUnmHaMNhjfzXca91SrlcPMrJHIXOKx+4hR+7PlywiUdW06gZNIXf171S/4zvTRFeEq0iRt+ZFGWKFJftvoKgIsmbPC3a25fu71UsDTGrm0fgMfXlIMK0EIMi1pAGcRCPP7pYEzgQgpbEib5vijOoJKjCvzaxLGUG65jm+7JOrX+hSOyORqnCQ==";
+                
+                var decrypted = CryptoJS.AES.decrypt(encrypted, key, {
+                    iv: iv,
+                    mode: CryptoJS.mode.CBC,
+                    padding: CryptoJS.pad.Pkcs7
+                });
+                    decrypted = CryptoJS.enc.Utf8.stringify(decrypted);
+                    document.getElementById('root').innerHTML = decrypted;
+            }
+        </script>
     </head>
     <body>
         <div>
-            <h1>争吵日记</h1>
-            <hr />
-            <h2>2019/07/20</h2>
-            <h3>经过</h3>
-            <p>暂时是占位符</p>
-            <h3>原因分析</h3>
-            <p>占位符</p>
-            <h3>备注</h3>
-            <p></p>
-            <h3>解决方案</h3>
-            <p>占位符</p>
-            <h2> TO BE ADDED!</h2>
+            Input the password: <input type="text" name="password", id='password'>
+            <button onclick="a()">Click me</button>
+        </div>
+        <div id="root">
+            
         </div>
     </body>
+    <script>
+        var str = document.getElementById('root').outerHTML;
+        var key = 'pls-stop-quarrel';
+        var iv = '0123456789abcdef';
 
+        key = CryptoJS.enc.Utf8.parse(key);
+        iv = CryptoJS.enc.Utf8.parse(iv);
+        
+        var encrypted = CryptoJS.AES.encrypt(str, key, {
+            iv: iv,
+            mode: CryptoJS.mode.CBC,
+            padding: CryptoJS.pad.Pkcs7
+        });
+        
+        encrypted = encrypted.toString();
+    </script>
 </html>
